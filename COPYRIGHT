@@ -1,0 +1,21 @@
+pyspk is distributed under MIT License
+  see the file: LICENSE
+
+** Requirements
+
+SPARK(C/C++ particle engine)
+  https://sourceforge.net/projects/sparkengine/?source=navbar
+  http://spark.canadian-forum.com/
+  LICENSE: zlib/libpng License
+
+Boost.Python
+  https://www.boost.org/
+  LICENSE: Boost Software License 1.0
+
+
+** Related Softwares
+
+pypp(code generator for boost.python)
+  pyspk is powered by pypp
+  https://github.com/mugwort-rc/pypp
+  LICENSE: GNU GENERAL PUBLIC LICENSE v3.0

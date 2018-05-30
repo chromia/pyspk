@@ -85,7 +85,7 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
     > conda install sdl2
     > conda install pysdl2
     > conda install pyopengl
-    > const install boost=1.66.0    # 1.67 has an linking bug
+    > const install boost=1.66.0    # 1.67 has a linking bug
     > conda install freetype
 
     # download FTGL files from Git repository
@@ -125,12 +125,12 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
     # to
     # >   'libboost_python3',
     # then, save it and close.
-    python setup.py install
-    cd ..
+    > python setup.py install
+    > cd ..
 
     # download pyspk
-    git clone https://github.com/chromia/pyspk.git
-    cd pyspk
+    > git clone https://github.com/chromia/pyspk.git
+    > cd pyspk
     # Editing setup.py
     # Find the line specifying Boost Library name (same as FTGL)
     # > boost_library = ['boost_python']

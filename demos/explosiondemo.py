@@ -372,6 +372,9 @@ class App:
         sdl2.SDL_Quit()
 
     def onCleanup(self):
+        # kill all systems expressly
+        self.explosions = []
+
         # release SPARK(pyspk) resources
         print('SPARK FACTORY BEFORE DESTRUCTION :')
         spk.Factory.getInstance().traceAll()

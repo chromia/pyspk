@@ -32,7 +32,7 @@ if os.name == 'nt':
     # Windows( expect Visual C++ )
     extra_compile_args = []  # c++11 is default
     main_libraries = []
-    GL_libraries = ['opengl32','glu32']  # boost is linked automatically
+    GL_libraries = ['opengl32', 'glu32']  # boost is linked automatically
 else:
     # POSIX OS( expect GCC )
     extra_compile_args = ['-std=c++11']

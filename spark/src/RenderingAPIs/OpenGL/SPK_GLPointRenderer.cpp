@@ -100,5 +100,10 @@ namespace GL
 
 		glDisableClientState(GL_VERTEX_ARRAY);
 		glDisableClientState(GL_COLOR_ARRAY);
+
+		if (type == POINT_SPRITE) {
+			if (getPointSpriteGLExt() == SUPPORTED)
+				disablePointSpriteGLExt();
+		}
 	}
 }}

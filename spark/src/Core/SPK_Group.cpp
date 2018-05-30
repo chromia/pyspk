@@ -326,10 +326,10 @@ namespace SPK
 		// Updates particles
 		for (size_t i = 0; i < pool.getNbActive(); ++i)
 		{
-			if ((pool[i].update(deltaTime))||((fupdate != NULL)&&((*fupdate)(pool[i],deltaTime))))
+			if ((pool[i].update(deltaTime))||(fupdate && (fupdate(pool[i],deltaTime))))
 			{
-				if (fdeath != NULL)
-					(*fdeath)(pool[i]);
+				if (fdeath)
+					fdeath(pool[i]);
 
 				if (nbBorn > 0)
 				{
@@ -428,8 +428,8 @@ namespace SPK
 		// must be here so that the velocity has already been initialized
 		p.interpolateParameters();
 
-		if (fbirth != NULL)
-			(*fbirth)(p);
+		if (fbirth)
+			fbirth(p);
 
 		if (boundingBoxEnabled)
 			updateAABB(p);

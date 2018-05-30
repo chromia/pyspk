@@ -29,6 +29,7 @@
 #include "Core/SPK_Vector3D.h"
 #include "Core/SPK_Pool.h"
 #include "Core/SPK_Particle.h"
+#include <functional>
 
 
 namespace SPK
@@ -173,7 +174,7 @@ namespace SPK
 		*
 		* @param fupdate : A pointer to the callback function that will perform custom update for this Group
 		*/
-		void setCustomUpdate(bool (*fupdate)(Particle&,float));
+		void setCustomUpdate(std::function<bool(Particle&, float)> fupdate);
 
 		/**
 		* @brief Assigns a callback for custom birth
@@ -185,7 +186,7 @@ namespace SPK
 		*
 		* @param fbirth : A pointer to the callback function that will perform custom birth for this Group
 		*/
-		void setCustomBirth(void (*fbirth)(Particle&));
+		void setCustomBirth(std::function<void(Particle&)> fbirth);
 
 		/**
 		* @brief Assigns a callback for custom death
@@ -197,7 +198,7 @@ namespace SPK
 		*
 		* @param fdeath : A pointer to the callback function that will perform custom death for this Group
 		*/
-		void setCustomDeath(void (*fdeath)(Particle&));
+		void setCustomDeath(std::function<void(Particle&)> fdeath);
 
 		/**
 		* @brief Enables or disables the sorting of particles
@@ -852,9 +853,9 @@ namespace SPK
 		unsigned int nbBufferedParticles;
 
 		// callbacks
-		bool (*fupdate)(Particle&,float);
-		void (*fbirth)(Particle&);
-		void (*fdeath)(Particle&);
+		std::function<bool(Particle&, float)> fupdate;
+		std::function<void(Particle&)> fbirth;
+		std::function<void(Particle&)> fdeath;
 
 		// bounding box
 		bool boundingBoxEnabled;
@@ -895,17 +896,17 @@ namespace SPK
 		this->gravity = gravity;
 	}
 
-	inline void Group::setCustomUpdate(bool (*fupdate)(Particle&,float))
+	inline void Group::setCustomUpdate(std::function<bool(Particle&, float)> fupdate)
 	{
 		this->fupdate = fupdate;
 	}
 
-	inline void Group::setCustomBirth(void (*fbirth)(Particle&))
+	inline void Group::setCustomBirth(std::function<void(Particle&)> fbirth)
 	{
 		this->fbirth = fbirth;
 	}
 
-	inline void Group::setCustomDeath(void (*fdeath)(Particle&))
+	inline void Group::setCustomDeath(std::function<void(Particle&)> fdeath)
 	{
 		this->fdeath = fdeath;
 	}

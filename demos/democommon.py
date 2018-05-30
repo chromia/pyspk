@@ -55,7 +55,7 @@ def loadTexture(path, type, clamp, mipmap=False):
         for i in range(0, imagesize, offset):
             b[i], b[i+2] = b[i+2], b[i]  # slow...
 
-    index = gl.glGenTextures(1)
+    index = int(gl.glGenTextures(1))
     gl.glBindTexture(gl.GL_TEXTURE_2D, index)
     gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_WRAP_S, clamp)
     gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_WRAP_T, clamp)

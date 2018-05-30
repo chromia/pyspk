@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\OpenGL">
+      <UniqueIdentifier>{789d0762-d3d5-4829-9300-e0fd10805c76}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pyspk_GL.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\GLExtHandler.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\GLPointRenderer.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\GLQuadRenderer.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\GLRenderer.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\GLLineRenderer.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\GLLineTrailRenderer.cpp">
+      <Filter>Source\OpenGL</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

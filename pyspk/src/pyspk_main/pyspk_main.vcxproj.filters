@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Core">
+      <UniqueIdentifier>{8232dedb-e956-48f4-94f2-92bb31e076f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Extensions">
+      <UniqueIdentifier>{526c369c-0165-44b0-ab13-5e5e45225439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Extensions\Emitters">
+      <UniqueIdentifier>{ca1d0608-7a59-43c4-aad3-7f2808fb7feb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Extensions\Renderers">
+      <UniqueIdentifier>{4485a1aa-3a57-4abc-aa43-6262d63ce954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Extensions\Modifiers">
+      <UniqueIdentifier>{70c90d55-7460-4504-adee-ec6e266c9b3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Extensions\Zones">
+      <UniqueIdentifier>{4e428045-d883-46b8-9eec-3b94d9e309d5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pyspk_main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BufferHandler.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\DEF.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Emitter.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Factory.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Group.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Interpolator.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Model.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Modifier.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Particle.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Registerable.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Renderer.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\System.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Transformable.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Vector3D.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Zone.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Emitters\NormalEmitter.cpp">
+      <Filter>Source\Extensions\Emitters</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Emitters\RandomEmitter.cpp">
+      <Filter>Source\Extensions\Emitters</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Emitters\SphericEmitter.cpp">
+      <Filter>Source\Extensions\Emitters</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Emitters\StaticEmitter.cpp">
+      <Filter>Source\Extensions\Emitters</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Emitters\StraightEmitter.cpp">
+      <Filter>Source\Extensions\Emitters</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\Collision.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\Destroyer.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\LinearForce.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\ModifierGroup.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\Obstacle.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\PointMass.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\Rotator.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Modifiers\Vortex.cpp">
+      <Filter>Source\Extensions\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Zones\AABox.cpp">
+      <Filter>Source\Extensions\Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Zones\Cylinder.cpp">
+      <Filter>Source\Extensions\Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Zones\Line.cpp">
+      <Filter>Source\Extensions\Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Zones\Plane.cpp">
+      <Filter>Source\Extensions\Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Zones\Point.cpp">
+      <Filter>Source\Extensions\Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Zones\Ring.cpp">
+      <Filter>Source\Extensions\Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Zones\Sphere.cpp">
+      <Filter>Source\Extensions\Zones</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Renderers\LineRendererInterface.cpp">
+      <Filter>Source\Extensions\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Renderers\Oriented2DRendererInterface.cpp">
+      <Filter>Source\Extensions\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Renderers\Oriented3DRendererInterface.cpp">
+      <Filter>Source\Extensions\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Renderers\PointRendererInterface.cpp">
+      <Filter>Source\Extensions\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\Renderers\QuadRendererInterface.cpp">
+      <Filter>Source\Extensions\Renderers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pyspk_main.hpp">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -26,3 +26,4 @@ bld/
 *.pdb
 
 build/
+__pycache__/

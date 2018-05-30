@@ -32,7 +32,7 @@ if os.name == 'nt':
     # Windows( expect Visual C++ )
     extra_compile_args = []  # c++11 is default
     main_libraries = []
-    GL_libraries = ['opengl32','glu32']  # boost is linked automatically 
+    GL_libraries = ['opengl32','glu32']  # boost is linked automatically
 else:
     # POSIX OS( expect GCC )
     extra_compile_args = ['-std=c++11']
@@ -58,7 +58,7 @@ setup(name='pyspk',
       url='https://github.com/chromia/pyspk',
       author='chromia',
       author_email='chromia@outlook.jp',
-      license='MIT',
+      license='zlib',
       description='pyspk: a binding of SPARK particle engine',
       long_description='file: README.md',
       py_modules=['pyspk/__init__', 'pyspk/GL/__init__'],

@@ -27,8 +27,8 @@ Common
 |Mouse| Rotates around (not all demos)|
 
 
-
 openGL Demos
+
 | Key | Descriptions |
 | --- | --- |
 |Pause| Pauses the particles systems |
@@ -38,12 +38,14 @@ openGL Demos
 
 
 Fire Demo
+
 | Key | Descriptions |
 | --- | --- |
 |Space| Generates smoke or not|
 
 
 Rain Demo
+
 | Key | Descriptions |
 | --- | --- |
 |Cursor keys(or WASD)| Moves around |
@@ -51,12 +53,14 @@ Rain Demo
 
 
 Fountain Demo
+
 | Key | Descriptions |
 | --- | --- |
 |Space| Switches between high an low graphics|
 
 
 Flakes Demo
+
 | Key | Descriptions |
 | --- | --- |
 | +/- | Changes the number of particles|
@@ -64,12 +68,14 @@ Flakes Demo
 
 
 Writing Demo
+
 | Key | Descriptions |
 | --- | --- |
 |Left drag | Draws particles |
 
 
 Fireworks Demo(Tuto1)
+
 | Key | Descriptions |
 | --- | --- |
 |Space| spawn fireworks |

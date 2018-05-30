@@ -24,3 +24,5 @@ bld/
 *.obj
 *.pch
 *.pdb
+
+build/

@@ -1,5 +1,6 @@
 from setuptools import setup, Extension, find_packages
 from pathlib import Path
+import sys
 import os
 
 
@@ -20,13 +21,12 @@ gl_sources = spark_core + spark_extensions + spark_gl + pyspk_gl  # quite redund
 include_dirs = ['./spark/include']
 library_dirs = []
 
-
-# Edit this line to adjust to your environment(Linux)
-# To find your boost library name, use this command:
-# sudo find / -name libboost_python*.so
-# if result is 'libboost_python36.so', then library name is 'libboost_python36'
-boost_lib = ['boost_python']
-
+if sys.version_info.major == 3:
+    boost_lib = ['boost_python3']
+    # boost_lib = ['boost_python-py35']
+    # boost_lib = ['boost_python-py36']
+else:
+    boost_lib = ['boost_python']
 
 if os.name == 'nt':
     # Windows( expect Visual C++ )

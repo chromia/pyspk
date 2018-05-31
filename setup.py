@@ -1,4 +1,4 @@
-from distutils.core import setup, Extension
+from setuptools import setup, Extension, find_packages
 from pathlib import Path
 import os
 
@@ -61,5 +61,5 @@ setup(name='pyspk',
       license='zlib',
       description='pyspk: a binding of SPARK particle engine',
       long_description='file: README.md',
-      py_modules=['pyspk/__init__', 'pyspk/GL/__init__'],
+      packages=find_packages(),
       ext_modules=[ext_main, ext_GL])

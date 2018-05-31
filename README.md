@@ -47,7 +47,7 @@ Build pyspk
     # install pyspk
     $ git clone https://github.com/chromia/pyspk
     $ cd pyspk
-    $ python seutp.py install
+    $ python setup.py install
     $ cd ..
 
 Install Additional Libraries ( this is optional, but necessary to run Demos )

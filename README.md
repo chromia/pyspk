@@ -31,31 +31,33 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
 
 ###  for Linux Users
 
-  (I tested on LinuxMint 18.3 on VirtualBox with gcc 5.4)
+ * Tested on LinuxMint 18.3 on VirtualBox with gcc 5.4
+ * Tested on Xubuntu 18.04 on VirtualBox with gcc 7.3
 
-    # create anaconda Virtual env
-    $ conda create -n spk python=3.6
-    $ source activate spk
+Build pyspk
 
-    # install pyopengl
     $ sudo apt install libglu1-mesa-dev mesa-common-dev
-    # pip install pyopengl
-
-    # install SDL2
-    $ sudo apt install libsdl2-dev
-    $ pip install pysdl2
-
-    # install boost
-    $ conda install boost
-
-    # install freetype2
-    $ wget https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2
-    $ tar xf freetype-2.9.tar.bz2
-    $ cd freetype-2.9
-    $ ./configure
-    $ make
-    $ sudo make install
+    $ conda create -n spk python=3.6
+    $ conda config --add channels conda-forge
+    $ source activate spk
+    $ conda install boost=1.66
+    # add paths to libraries installed by conda
+    $ export CPLUS_INCLUDE_PATH=$CONDA_PREFIX/include:$CPLUS_INCLUDE_PATH
+    $ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
+    # install pyspk
+    $ git clone https://github.com/chromia/pyspk
+    $ cd pyspk
+    $ python seutp.py install
     $ cd ..
+
+Install Additional Libraries ( this is optional, but necessary to run Demos )
+
+    # pip install pyopengl
+    $ conda install sdl2
+    $ pip install pysdl2
+    $ conda install freetype
+
+Build FTGL & PyFTGL ( this is optional, but necessary to run Demos )
 
     # install FTGL  (from https://sourceforge.net/projects/ftgl/)
     $ wget 'https://sourceforge.net/projects/ftgl/files/FTGL%20Source/2.1.3%7Erc5/ftgl-2.1.3-rc5.tar.bz2'
@@ -63,24 +65,19 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
     # In that case, please download it manually via browser.
     $ tar xf ftgl-2.1.3-rc5.tar.bz2
     $ cd ftgl-2.1.3-rc5
+    $ ./configure --prefix=$CONDA_PREFIX
     $ make
-    $ sudo make install
+    $ make install
     $ cd ..
 
     # install PyFTGL
     $ wget http://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/pyftgl/PyFTGL-0.5c.tar.bz2
     $ tar xf PyFTGL-0.5c.tar.bz2
     $ cd pyftgl
-    # add the paths to freetype, boost
-    $ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/include/freetype2:$CONDA_PREFIX/include
+    $ export CPLUS_INCLUDE_PATH=$CONDA_PREFIX/include/freetype2:$CPLUS_INCLUDE_PATH
+    $ ln -s $CONDA_PREFIX/lib/libboost_python3.so $CONDA_PREFIX/lib/libboost_python.so
     $ python setup.py install
-    $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     $ cd ..
-
-    # install pyspk
-    $ git clone https://github.com/chromia/pyspk.git
-    $ cd pyspk
-    $ python seutp.py install
 
 
 ###  for Window Users
@@ -92,13 +89,13 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
     * [Git & Git Bash](https://gitforwindows.org/)
 
 Firstly, please open 'Command Prompt' by *"x64 Native Tools Command Prompt for VS 2017"* command in Start Menu.
-<br>
 
 Build pyspk
 
-    > conda create -n spkinstall python=3.6
+    > conda create -n spk python=3.6
     > conda config --add channels conda-forge
-    > conda install boost=1.66.0    # 1.67 has a linking bug
+    > conda activate spk
+    > conda install boost=1.66    # 1.67 has a linking bug
     # add paths to libraries installed by conda
     > set INCLUDE=%CONDA_PREFIX%\Library\include;%INCLUDE%
     > set LIB=%CONDA_PREFIX%\Library\lib;%LIB%
@@ -126,9 +123,9 @@ Build FTGL & PyFTGL ( this is optional, but necessary to run Demos )
     # create bin,include,lib directories
     > msvc\vc2017\collect.bat
     # add the paths to ftgl
-    > set PATH=<absolute path to .\bin dir>;%PATH%      # should be created as permanent link
-    > set INCLUDE=<absolute path to .\include dir>;%INCLUDE%
-    > set LIB=<absolute path to .\lib>;%LIB%
+    > set PATH=%CD%\bin;%PATH%      # should be registered as permanent link
+    > set INCLUDE=%CD%\include;%INCLUDE%
+    > set LIB=%CD%\lib;%LIB%
     > cd ..
 
     # download PyFtgl from below URL

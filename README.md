@@ -85,19 +85,16 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
 
 ###  for Window Users
 
- - prerequisites
+ * prerequisites
 
-    - [anaconda](https://www.anaconda.com/) or [miniconda](https://conda.io/miniconda.html)
-    - ["Visual Studio 2017"](https://www.visualstudio.com/ja/downloads/) or ["Build Tools for Visual Studio 2017"(Free)](http://landinghub.visualstudio.com/visual-cpp-build-tools)  
-    - [Git & Git Bash](https://gitforwindows.org/)
+    * [anaconda](https://www.anaconda.com/) or [miniconda](https://conda.io/miniconda.html)
+    * ["Visual Studio 2017"](https://www.visualstudio.com/ja/downloads/) or ["Build Tools for Visual Studio 2017"(Free)](http://landinghub.visualstudio.com/visual-cpp-build-tools)  
+    * [Git & Git Bash](https://gitforwindows.org/)
 
- Firstly, please open 'Command Prompt' by *"x64 Native Tools Command Prompt for VS 2017"* command in Start Menu:  
+Firstly, please open 'Command Prompt' by *"x64 Native Tools Command Prompt for VS 2017"* command in Start Menu.
+<br>
 
-
-
-
-  * Build pyspk
-
+Build pyspk
 
     > conda create -n spkinstall python=3.6
     > conda config --add channels conda-forge
@@ -105,24 +102,20 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
     # add paths to libraries installed by conda
     > set INCLUDE=%CONDA_PREFIX%\Library\include;%INCLUDE%
     > set LIB=%CONDA_PREFIX%\Library\lib;%LIB%
-
     # download pyspk
     > git clone https://github.com/chromia/pyspk.git
     > cd pyspk
     > python setup.py install
     > cd ..
 
-  * Install Additional Libraries ( this is optional, but necessary to run Demos )
-
+Install Additional Libraries ( this is optional, but necessary to run Demos )
 
     > conda install sdl2
     > conda install pysdl2
     > conda install pyopengl
     > conda install freetype
 
-
-  * Build FTGL & PyFTGL ( this is optional, but necessary to run Demos )
-
+Build FTGL & PyFTGL ( this is optional, but necessary to run Demos )
 
     # download FTGL files from Git repository
     > git clone https://github.com/chromia/ftgl

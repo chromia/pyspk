@@ -80,7 +80,7 @@ Build FTGL & PyFTGL ( this is optional, but necessary to run Demos )
     $ cd ..
 
 
-###  for Window Users
+###  for Windows Users
 
  * prerequisites
 

@@ -5,6 +5,14 @@ pyspk is a Python binding of SPARK paricle engine.
  - SPARK: <https://sourceforge.net/projects/sparkengine/>
 
 
+## Supported Python version
+
+ - Python 3.6 later
+
+
+\* Operation is not confirmed with 3.5 (I will take care of).  
+\* 2.7 is not supported. (can't build...)
+
 ## requirements
 
   - [boost](https://www.boost.org/) (Mandatory)
@@ -26,7 +34,7 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
   (I tested on LinuxMint 18.3 on VirtualBox with gcc 5.4)
 
     # create anaconda Virtual env
-    $ conda create -n spk python=3.6.5
+    $ conda create -n spk python=3.6
     $ source activate spk
 
     # install pyopengl
@@ -77,27 +85,50 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
 
 ###  for Window Users
 
-  Visual Studio 2017 is required. ( Perhaps it works with 2015 )  
-  and I recommend installing Git Bash
+ - prerequisites
 
-    > conda create -n spkinstall python=3.6.5
+    - [anaconda](https://www.anaconda.com/) or [miniconda](https://conda.io/miniconda.html)
+    - ["Visual Studio 2017"](https://www.visualstudio.com/ja/downloads/) or ["Build Tools for Visual Studio 2017"(Free)](http://landinghub.visualstudio.com/visual-cpp-build-tools)  
+    - [Git & Git Bash](https://gitforwindows.org/)
+
+ Firstly, please open 'Command Prompt' by *"x64 Native Tools Command Prompt for VS 2017"* command in Start Menu:  
+
+
+
+
+  * Build pyspk
+
+
+    > conda create -n spkinstall python=3.6
     > conda config --add channels conda-forge
+    > const install boost=1.66.0    # 1.67 has a linking bug
+    # add paths to libraries installed by conda
+    > set INCLUDE=%CONDA_PREFIX%\Library\include;%INCLUDE%
+    > set LIB=%CONDA_PREFIX%\Library\lib;%LIB%
+
+    # download pyspk
+    > git clone https://github.com/chromia/pyspk.git
+    > cd pyspk
+    > python setup.py install
+    > cd ..
+
+  * Install Additional Libraries ( this is optional, but necessary to run Demos )
+
+
     > conda install sdl2
     > conda install pysdl2
     > conda install pyopengl
-    > const install boost=1.66.0    # 1.67 has a linking bug
     > conda install freetype
+
+
+  * Build FTGL & PyFTGL ( this is optional, but necessary to run Demos )
+
 
     # download FTGL files from Git repository
     > git clone https://github.com/chromia/ftgl
     > cd ftgl
-    # load visual C++ configuration ( launch 'x64 Native Tools Command Prompt for VS 2017' )
-    > "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"   # or vcvars32.bat(depends on your env)
-    # add the paths to freetype
-    > set INCLUDE=%CONDA_PREFIX%\Library\include;%INCLUDE%
-    > set LIB=%CONDA_PREFIX%\Library\lib;%LIB%
-    > set UseEnv=True
     # run msbuild
+    > set UseEnv=True
     > msbuild msvc\vc2017\ftgl_dll.vcxproj /property:Configuration=release
     # create bin,include,lib directories
     > msvc\vc2017\collect.bat
@@ -127,14 +158,3 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
     # then, save it and close.
     > python setup.py install
     > cd ..
-
-    # download pyspk
-    > git clone https://github.com/chromia/pyspk.git
-    > cd pyspk
-    # Editing setup.py
-    # Find the line specifying Boost Library name (same as FTGL)
-    # > boost_library = ['boost_python']
-    # to
-    # > boost_library = ['boost_python3']
-    # then, save it and close.
-    > python setup.py install

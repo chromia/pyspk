@@ -101,7 +101,7 @@ So **I strongly recommend using [anaconda](https://www.anaconda.com/) or [minico
 
     > conda create -n spkinstall python=3.6
     > conda config --add channels conda-forge
-    > const install boost=1.66.0    # 1.67 has a linking bug
+    > conda install boost=1.66.0    # 1.67 has a linking bug
     # add paths to libraries installed by conda
     > set INCLUDE=%CONDA_PREFIX%\Library\include;%INCLUDE%
     > set LIB=%CONDA_PREFIX%\Library\lib;%LIB%

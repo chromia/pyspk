@@ -1,5 +1,8 @@
 # SPARK & pyspk
 
+![alt spk-demo-images](http://chromia.cocotte.jp/monooki/files/ss/pyspk_ss01.jpg)
+
+
 pyspk is a Python binding of SPARK paricle engine.
 
  - SPARK: <https://sourceforge.net/projects/sparkengine/>
@@ -13,7 +16,7 @@ pyspk is a Python binding of SPARK paricle engine.
 \* Operation is not confirmed with 3.5 (I will take care of).  
 \* 2.7 is not supported. (can't build...)
 
-## requirements
+## Requirements
 
   - [boost](https://www.boost.org/) (Mandatory)
   - OpenGL(GL, GLU) (Mandatory)
@@ -148,3 +151,15 @@ Build FTGL & PyFTGL ( this is optional, but necessary to run Demos )
     # then, save it and close.
     > python setup.py install
     > cd ..
+
+## How to run Demos
+
+    > cd pyspk/demos
+    > python basicdemo.py
+
+  see also [demos/README.md](https://github.com/chromia/pyspk/demos/README.md)
+
+
+## License
+
+ * zlib/libpng license  (same as SPARK)  

@@ -38,12 +38,17 @@ import sdl2
 # pyopengl
 import OpenGL.GL as gl
 import OpenGL.GLU as glu
-# FTGL
-import FTGL
 # SPARK(pyspk)
 import pyspk as spk
 from pyspk.GL import GLPointRenderer
 from democommon import loadTexture, drawBoundingBox, drawBox
+
+try:
+    # FTGL
+    import FTGL
+    notext = False
+except ImportError:
+    notext = True
 
 
 class App:
@@ -75,9 +80,10 @@ class App:
         self.txWall = loadTexture(b'res/wall.bmp', gl.GL_RGB, gl.GL_REPEAT)
 
         # init FTGL
-        font = FTGL.TextureFont('res/font.ttf')
-        font.FaceSize(24)
-        self.font = font
+        if not notext:
+            font = FTGL.TextureFont('res/font.ttf')
+            font.FaceSize(24)
+            self.font = font
 
         # init SPARK(pyspk)
         # create Renderer
@@ -147,6 +153,7 @@ class App:
         self.nbParticles = ''
         self.fps = ''
         self.frames = [sdl2.SDL_GetTicks()-1]
+        self.lasttime = self.frames[-1]
 
     def initRoom(self, parent):
         # creating room objects and register it to system
@@ -358,6 +365,11 @@ class App:
         fps = ((len(self.frames)-1) * 1000.0) // (self.frames[-1] - self.frames[0])
         self.fps = "FPS : " + str(fps)
 
+        if notext and t - self.lasttime >= 1000:
+            # output informations to console
+            print(self.fps, ',', self.nbParticles)
+            self.lasttime = t
+
     def drawText(self, text, x, y):
         gl.glPushMatrix()
         gl.glTranslated(x, y, 0.0)
@@ -402,7 +414,7 @@ class App:
         self.system.render()
 
         # draw texts(F1 key)
-        if self.text != 0:
+        if not notext and self.text != 0:
             gl.glMatrixMode(gl.GL_MODELVIEW)
             gl.glLoadIdentity()
             gl.glMatrixMode(gl.GL_PROJECTION)

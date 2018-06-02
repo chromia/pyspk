@@ -38,14 +38,19 @@ import sdl2
 # pyopengl
 import OpenGL.GL as gl
 import OpenGL.GLU as glu
-# FTGL
-import FTGL
 # SPARK(pyspk)
 import pyspk as spk
 from pyspk.GL import GLPointRenderer, GLQuadRenderer
 from democommon import loadTexture, drawBoundingBox
 # PyWavefront
 import pywavefront.visualization
+
+try:
+    # FTGL
+    import FTGL
+    notext = False
+except ImportError:
+    notext = True
 
 
 class App:
@@ -87,9 +92,10 @@ class App:
         gl.glLightModelf(gl.GL_LIGHT_MODEL_LOCAL_VIEWER, 1.0)
 
         # init FTGL
-        font = FTGL.TextureFont('res/font.ttf')
-        font.FaceSize(24)
-        self.font = font
+        if not notext:
+            font = FTGL.TextureFont('res/font.ttf')
+            font.FaceSize(24)
+            self.font = font
 
         # init PyWavefront
         self.scene = pywavefront.Wavefront('./res/SceneFireCamp.obj')
@@ -231,6 +237,7 @@ class App:
         self.fps = ''
         self.strSmoke = 'SMOKE: ON'
         self.frames = [sdl2.SDL_GetTicks()-1]
+        self.lasttime = self.frames[-1]
 
     def clear(self):
         # release resources
@@ -339,6 +346,11 @@ class App:
         fps = ((len(self.frames)-1) * 1000.0) // (self.frames[-1] - self.frames[0])
         self.fps = "FPS : " + str(fps)
 
+        if notext and t - self.lasttime >= 1000:
+            # output informations to console
+            print(self.fps, ',', self.nbParticles, ',', self.strSmoke)
+            self.lasttime = t
+
     def drawText(self, text, x, y):
         gl.glPushMatrix()
         gl.glTranslated(x, y, 0.0)
@@ -403,7 +415,7 @@ class App:
         spk.GL.GLRenderer.restoreGLStates()
 
         # draw texts(F1 key)
-        if self.text != 0:
+        if not notext and self.text != 0:
             gl.glMatrixMode(gl.GL_MODELVIEW)
             gl.glLoadIdentity()
             gl.glMatrixMode(gl.GL_PROJECTION)

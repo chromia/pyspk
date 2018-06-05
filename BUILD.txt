@@ -1,0 +1,74 @@
+
+# Windows Users
+
+## Requirements
+
+ * Visual Studio Toolkit 2015 for Python 3.5, 3.6
+ * Visual Studio Toolkit 2017 for Python 3.7
+ * Boost C++ Libraries
+ * Git
+
+Visual Studio Toolkit 2015 is included in 'Visual Studio 2017' (any edition) or 'Visual Studio Build Tools 2017'.
+Check "VC++ 2015.3 v140 tool set for desktop(x86,x64)" option on Visual Studio Installer.
+Visual Studio Toolkit 2017 is installed by default when you install Visual Studio or Build Tools.
+
+
+1. Open Command Prompt
+    click "VS2015 x64 Native Tools Command Prompt" on Start Menu for Python 3.5, 3.6
+    click "x64 Native Tools Command Prompt for VS 2017" on Start Menu for Python 3.7
+
+2. Add path to Boost DLLs
+    set PATH=<path to your boost bin dir>;%PATH%
+      e.g. set PATH=d:\libs\boost\lib;%PATH%
+
+3. Add include-path to Boost headers
+    set INCLUDE=<path to your boost include dir>;%INCLUDE%
+      e.g. set INCLUDE=d:\libs\boost\include\boost-1_66;%INCLUDE%
+
+4. Add lib-path to Boost libraries
+    set LIB=<path to your boost lib dir>;%LIB%
+      e.g. set LIB=d:\libs\boost\;%LIB%
+
+5. Get source codes
+    git clone https://github.com/chromia/pyspk
+    cd pyspk
+
+6. Build and Install pyspk
+    python setup.py install
+    *It may take a few minutes
+
+7. Confirm it
+    python
+    >>> import pyspk
+    >>>   # no error message is displayed
+
+
+---------------------------------------------------------------------
+
+## Requirements
+
+  * g++ ( supports c++11 )
+  * Boost C++ Libraries
+  * Git
+
+1. Install GL Libraries
+    sudo apt install libglu1-mesa-dev common-mesa-dev
+
+2. Add include-path to Boost headers
+    export CPLUS_INCLUDE_PATH=<path to your boost include dir>:$CPLUS_INCLUDE_PATH
+
+3. Add lib-path to Boost libraries
+    export LD_LIBRARY_PATH=<path to your boost lib dir>:$LD_LIBRARY_PATH
+
+4. Get source codes
+    git clone https://github.com/chromia/pyspk
+    cd pyspk
+
+5. Build and Install pyspk
+    python setup.py install
+    *It may take a few minutes
+
+6. Confirm it
+    python
+    >>> import pyspk
+    >>>   # no error message is displayed

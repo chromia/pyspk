@@ -55,7 +55,7 @@ Install boost & pyspk
 
     > conda create -n spk python=3.6
     > conda activate spk
-    > conda install boost=1.66    # 1.67 has a linking bug
+    > conda install boost=1.66
     # download pyspk binary via browser (or wget/curl if you have)
     # http://chromia.cocotte.jp/monooki/files/pyspk/pyspk-0.1.0-cp36-cp36m-win_amd64.whl
     > pip install pyspk-0.1.0-cp36-cp36m-win_amd64.whl
@@ -67,7 +67,7 @@ Install Additional Libraries ( this is optional, but necessary to run Demos )
 
 ## How to build manually
 
-see [./BUILD](http://github.com/chromia/pyspk/BUILD) file
+see [./BUILD](https://github.com/chromia/pyspk/blob/master/BUILD.txt) file
 
 
 ## How to run Demos

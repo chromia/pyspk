@@ -57,7 +57,7 @@ Visual Studio Toolkit 2017 is installed by default when you install Visual Studi
 ## Build
 
 1. Install GL Libraries
-    sudo apt install libglu1-mesa-dev common-mesa-dev
+    sudo apt install libglu1-mesa-dev mesa-common-dev
 
 2. Add include-path to Boost headers
     export CPLUS_INCLUDE_PATH=<path to your boost include dir>:$CPLUS_INCLUDE_PATH

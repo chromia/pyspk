@@ -12,6 +12,7 @@ Visual Studio Toolkit 2015 is included in 'Visual Studio 2017' (any edition) or 
 Check "VC++ 2015.3 v140 tool set for desktop(x86,x64)" option on Visual Studio Installer.
 Visual Studio Toolkit 2017 is installed by default when you install Visual Studio or Build Tools.
 
+## Build
 
 1. Open Command Prompt
     click "VS2015 x64 Native Tools Command Prompt" on Start Menu for Python 3.5, 3.6
@@ -45,11 +46,15 @@ Visual Studio Toolkit 2017 is installed by default when you install Visual Studi
 
 ---------------------------------------------------------------------
 
+# Linux Users
+
 ## Requirements
 
   * g++ ( supports c++11 )
   * Boost C++ Libraries
   * Git
+
+## Build
 
 1. Install GL Libraries
     sudo apt install libglu1-mesa-dev common-mesa-dev

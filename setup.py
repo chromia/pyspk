@@ -21,13 +21,6 @@ gl_sources = spark_core + spark_extensions + spark_gl + pyspk_gl  # quite redund
 include_dirs = ['./spark/include']
 library_dirs = []
 
-if sys.version_info.major == 3:
-    boost_lib = ['boost_python3']
-    # boost_lib = ['boost_python-py35']
-    # boost_lib = ['boost_python-py36']
-else:
-    boost_lib = ['boost_python']
-
 if os.name == 'nt':
     # Windows( expect Visual C++ )
     extra_compile_args = []  # c++11 is default
@@ -35,9 +28,17 @@ if os.name == 'nt':
     GL_libraries = ['opengl32', 'glu32']  # boost is linked automatically
 else:
     # POSIX OS( expect GCC )
+    # solving boost library name
+    #   boost 1.66 or ealier : libboost_python3
+    #   boost 1.67 or later  : libboost_python35 (or 36 or 37 ...)
+    # is there an easy method to get boost version?
+    boost_lib = os.getenv('BOOST_LIB_NAME', None)
+    if boost_lib is None:
+        # get default boost libname(e.g. boost_python35/boost_python36/...)
+        boost_lib = 'boost_python' + sys.version_info.major + sys.version_info.minor
     extra_compile_args = ['-std=c++11']
-    main_libraries = boost_lib
-    GL_libraries = ['GL', 'GLU'] + boost_lib
+    main_libraries = [boost_lib]
+    GL_libraries = ['GL', 'GLU', boost_lib]
 
 
 ext_main = Extension('pyspk._pyspk', main_sources,

@@ -73,6 +73,10 @@ Visual Studio Toolkit 2017 is installed by default when you install Visual Studi
     python setup.py install
     *It may take a few minutes
 
+    If you want to use boost 1.66 or earlier, run below command alternatively.
+    BOOST_LIB_NAME=boost_python3 python setup.py install
+    So C++ linker searches 'libboost_python3.a', not 'libboost_python3x.a'.
+
 6. Confirm it
     python
     >>> import pyspk

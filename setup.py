@@ -35,7 +35,7 @@ else:
     boost_lib = os.getenv('BOOST_LIB_NAME', None)
     if boost_lib is None:
         # get default boost libname(e.g. boost_python35/boost_python36/...)
-        boost_lib = f'boost_python${sys.version_info.major}${sys.version_info.minor}'
+        boost_lib = 'boost_python' + str(sys.version_info.major) + str(sys.version_info.minor)
     extra_compile_args = ['-std=c++11']
     main_libraries = [boost_lib]
     GL_libraries = ['GL', 'GLU', boost_lib]
